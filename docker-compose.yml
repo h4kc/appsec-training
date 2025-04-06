@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  cmd-1:
+    build:
+      context: ./cmd-1
+    networks:
+      - vuln-network
+
+  jwt-null:
+    build:
+      context: ./jwt-null
+    networks:
+      - vuln-network
+
+  jwt-secret:
+    build:
+      context: ./jwt-secret
+    networks:
+      - vuln-network
+
+  lfi-2:
+    build:
+      context: ./lfi-2
+    networks:
+      - vuln-network
+
+  lfi-3:
+    build:
+      context: ./lfi-3
+    networks:
+      - vuln-network
+
+  sqli:
+    build:
+      context: ./sqli
+    networks:
+      - vuln-network
+
+  sqli-login-bypass:
+    build:
+      context: ./sqli-login-bypass
+    networks:
+      - vuln-network
+
+  xss-stored:
+    build:
+      context: ./xss-stored
+    networks:
+      - vuln-network
+
+  xxe:
+    build:
+      context: ./xxe
+    networks:
+      - vuln-network
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"  # For HTTPS if configured
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl  # For SSL certificates
+    depends_on:
+      - cmd-1
+      - jwt-null
+      - jwt-secret
+      - lfi-2
+      - lfi-3
+      - sqli
+      - sqli-login-bypass
+      - xss-stored
+      - xxe
+    networks:
+      - vuln-network
+
+networks:
+  vuln-network:
+    driver: bridge

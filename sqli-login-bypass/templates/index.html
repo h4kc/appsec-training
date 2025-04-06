@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SKF Labs</title>
+
+	<link href="/static/css/Normalize.css" rel="stylesheet">
+	<link href="/static/css/datepicker3.css" rel="stylesheet">
+	<link href="/static/css/styles.css" rel="stylesheet">
+
+	<!--Icons-->
+	<script src="/static/js/lumino.glyphs.js"></script>
+	<script src="/static/js/hints.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Hind:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+	<main class="container">
+
+		<section class="bgg">
+			<div class="wrap small">
+				<div class="inner pt6 pb6">
+
+					<!-- Start Original Code -->
+
+					<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+						<div class="row">
+							<img width="200" src="/static/img/logo-one.png" alt="">
+						</div>
+						<!--/.row-->
+
+						<div class="row">
+							<div class="col-lg-12">
+								<h1 class="page-header">Live demonstration!</h1>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">Authentication</div>
+									<div class="panel-body">
+										<div class="col-md-6">
+											<a href=/loggedin>Proceed</a> to the authenticated section or login if
+											you're not authenticated yet:</br></br />
+											<form method="post" action="/login">
+												<input type="text" class="form-control" name="username"
+													placeholder="username" /><br />
+												<input type="password" class="form-control" name="password"
+													placeholder="password" /><br />
+												<button class="btn btn-primary" type="submit">Submit
+													Button</button></br>
+												<script>var msg = '{{msg}}'; if (msg != '') { alert(msg) }</script>
+										</div>
+										</form>
+									</div>
+								</div>
+
+					</div>
+					<!--/.main-->
+					<!-- End Original Code -->
+
+				</div>
+			</div>
+		</section>
+
+
+	
+
+	</main>
+
+	<script src="/static/js/jquery-3.6.0.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+
+	<script>
+
+		const checkbox = document.getElementById('checkbox');
+		checkbox.addEventListener('change', () => {
+			document.body.classList.toggle('dark');
+		});
+
+	</script>
+</body>
+
+</html>
