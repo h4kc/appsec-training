@@ -46,9 +46,13 @@ services:
   xss-stored:
     build:
       context: ./xss-stored
+    ulimits:
+      nofile:
+        soft: 8096
+        hard: 8096
     networks:
       - vuln-network
-
+  
   xxe:
     build:
       context: ./xxe
